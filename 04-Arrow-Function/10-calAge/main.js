@@ -8,6 +8,31 @@
 
 // ถ้าเกิน 1/12/2020 แสดงว่ามีอายุ 1 ปี 31 วัน
 
-const calAge = (day, month, year) => {
-    
+const leapYear = (year) => {
+    if(year % 100 === 0) {
+        if(year % 400 === 0) {
+            return 29;
+        } else {
+            return 28;
+        }
+    } else if(year % 4 === 0) {
+        return 29;
+    } else {
+        return 28;
+    }
+}
+
+
+const calAge = (birth, year) => {
+    let sum = 0;
+    for(let i = birth; i <= year; i++) {
+        for(let j = 1; j <= 7; j++) {
+            sum += 31;
+        }
+        for(let j = 1; j <= 4; j++) {
+            sum += 30;
+        }
+        sum += leapYear(i);
+    }
+    return sum;
 }
