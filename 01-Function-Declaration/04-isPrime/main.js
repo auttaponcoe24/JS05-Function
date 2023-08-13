@@ -33,34 +33,22 @@
 
 
 // ########### กรณีไม่ใช้ return
-// function checkPrime(num) {
-//     let isPrime = true;
-//     for (let divider = 2; divider < num; divider++) {
-//         if (num % divider == 0) {
-//             isPrime = false;
-//             break;
-//         }
-//     }
-//     if (isPrime) console.log(num);
-// }
-
-// function printPrime(limit) {
-//     for (let n = 2; n <= limit; n++){
-//         checkPrime(n);
-//     }
-// }
-
-// printPrime(+prompt("checkPrime?"));
-
-
-// ########### กรณีใช้ return
-function isPrime(num) {
+function checkPrime(num) {
     let isPrime = true;
     for (let divider = 2; divider < num; divider++) {
-        if(num % divider == 0) {
-            return false;
+        if (num % divider == 0) {
+            isPrime = false;
+            break;
         }
     }
-    return true;
+    if (isPrime) console.log(num);
 }
+
+function printPrime(limit) {
+    for (let n = 2; n <= limit; n++){
+        checkPrime(n);
+    }
+}
+
+printPrime(+prompt("checkPrime?"));
 

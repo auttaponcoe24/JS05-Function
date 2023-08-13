@@ -9,19 +9,22 @@
 // ```
 
 function checkPrime(num) {
-    for (let divider = 2; divider <= num; divider++) {
-        if(divider % num == 0) {
-            return false
+    for (let divider = 2; divider < num; divider++) {
+        if(num % divider == 0) {
+            return false;
         }
     }
     return true;
 }
 
-function printPrime(num) {
-    let results;
-    for (let i = 2; i < num; i++) {
-        results = checkPrime(num);
+function printPrime(limit) {
+    let result;
+    for (let i = 2; i <= limit; i++) {
+        if (checkPrime(i)) {
+            result = console.log(i);
+        }
     }
-    return results;
+    return result;
 }
 
+printPrime(+prompt("CheckPrime Number:"));
